@@ -2523,6 +2523,9 @@ button.close { -webkit-appearance: none; padding: 0; cursor: pointer; background
 
 @media print { .visible-print-inline-block { display: inline-block !important; } }
 @media print { .hidden-print { display: none !important; } }
+/****************************************************************/
+/* Lightning All Area All Skin common style
+/****************************************************************/
 /*-------------------------------------------*/
 /* common style
 /*-------------------------------------------*/
