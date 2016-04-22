@@ -25,12 +25,20 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
+
 load_plugin_textdomain( 'lightning_skin_sample', false, dirname( plugin_basename( __FILE__ ) ). '/languages' );
 
-add_action('init', 'ltg_sk_sample_delete_default_css');
-function ltg_sk_sample_delete_default_css(){
-    // remove default design
-    remove_action( 'wp_enqueue_scripts', 'lightning_design_css' );
-    // add new design
-    wp_enqueue_style( 'lightning-sample-style', plugins_url( '/css/style.css', __FILE__ ), array(), '20150918a' );
+
+add_filter( 'lightning_Design_skins', 'lightning_Register_skin' );
+function lightning_Register_skin( $array ){
+ $array['test'] = array(
+	 'name'     => 'テストスキン',
+	 'callback' => 'ltg_sk_sample_current_function',
+	 'disable_css' => true,
+ );
+ return $array;
+}
+
+function ltg_sk_sample_current_function(){
+	require_once( plugin_dir_path( __FILE__ ) . '/active.php' );
 }
