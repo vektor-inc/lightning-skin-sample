@@ -10,7 +10,7 @@ License: GPL2
 Domain Path: /languages
 */
 /*
-Copyright 2015 Vektor,Inc. ( email : info@vektor-inc.co.jp )
+Copyright 2015-2016 Vektor,Inc. ( email : info@vektor-inc.co.jp )
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License, version 2, as
@@ -26,19 +26,26 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
+$data = get_file_data( __FILE__, array( 'version' => 'Version' ) );
+define( 'PLUGINNAME_VERSION', $data['version'] );
+
+
 load_plugin_textdomain( 'lightning_skin_sample', false, dirname( plugin_basename( __FILE__ ) ). '/languages' );
 
 
-add_filter( 'lightning_Design_skins', 'lightning_Register_skin' );
-function lightning_Register_skin( $array ){
- $array['test'] = array(
+add_filter( 'lightning_design_skins', 'lightning_register_skin' );
+function lightning_register_skin( $array ){
+
+ $array['sample'] = array(
 	 'name'     => 'テストスキン',
-	 'callback' => 'ltg_sk_sample_current_function',
+	 'callback' => 'lightning_skin_current_function_sample',
 	 'disable_css' => true,
  );
  return $array;
 }
-
-function ltg_sk_sample_current_function(){
+/*-------------------------------------------*/
+/*	Require skins function
+/*-------------------------------------------*/
+function lightning_skin_current_function_sample(){
 	require_once( plugin_dir_path( __FILE__ ) . '/active.php' );
 }
