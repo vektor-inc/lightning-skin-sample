@@ -30,13 +30,13 @@ $data = get_file_data( __FILE__, array( 'version' => 'Version' ) );
 // // !! Please rewrite the part of the [SKIN_NAME] to your design skin name.
 define( 'SKIN_NAME_VERSION', $data['version'] );
 
-load_plugin_textdomain( 'lightning_skin_sample', false, dirname( plugin_basename( __FILE__ ) ). '/languages' );
+load_plugin_textdomain( 'sample_lightning_skin', false, dirname( plugin_basename( __FILE__ ) ). '/languages' );
 
-add_filter( 'lightning_design_skins', 'lightning_register_skin' );
-function lightning_register_skin( $array ){
+add_filter( 'lightning_design_skins', 'sample_lightning_register_skin' );
+function sample_lightning_register_skin( $array ){
  $array['sample'] = array(
 	 'name'     => 'Sample Skin',                            // Skin Name
-	 'callback' => 'lightning_skin_current_function_sample', // Require skins function name
+	 'callback' => 'sample_lightning_skin_current_function', // Require skins function name
 	 'disable_css' => true,                                  // kill default design(origin) style
 	 // 'customizer' => 'customizer_function_sample'
  );
@@ -47,6 +47,6 @@ function lightning_register_skin( $array ){
 /*	Require skins function
 /*-------------------------------------------*/
 // !! Please rewrite the part of the [sample] to your design skin name.
-function lightning_skin_current_function_sample(){
+function sample_lightning_skin_current_function(){
 	require_once( plugin_dir_path( __FILE__ ) . '/active.php' );
 }
