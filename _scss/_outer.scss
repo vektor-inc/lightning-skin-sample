@@ -1,4 +1,4 @@
-﻿@charset "utf-8";
+@charset "utf-8";
 @import "compass";
 
 /****************************************************************/
@@ -118,26 +118,15 @@ ul.gMenu {
 .gMenu_name { text-align: center;display: block; }
 .gMenu_description { text-align: center; }
 ul.gMenu { float: right;
-  a:hover,
-  a:active { background-color:#fff;color: $color_key; }
   & >li { position: relative;
     & > a { border-bottom:none; }
   }
-  & > li > a:hover:after,
-  & > li.current-post-ancestor > a:after,
-  & > li.current-menu-item > a:after,
-  & > li.current-menu-parent > a:after,
-  & > li.current-menu-ancestor > a:after,
-  & > li.current_page_parent > a:after,
-  & > li.current_page_ancestor > a:after { content:".";line-height:0;border-bottom:1px solid $color_key; bottom:0px;display:block; overflow:hidden;position: absolute;width:100%;left:0; }
 } // ul.gMenu
 // sub-menu
 ul.gMenu > li > ul.sub-menu { display:none;position: absolute;box-shadow:1px 1px 3px rgba(0,0,0,0.2);z-index: 1000;
   li { width:240px;margin:0;list-style: none;background-color: #fff;display:block; overflow:visible; position: relative;
     ul { margin-bottom:0;display:none;position: absolute;left:240px;top:0.8em;  }
-    a { padding-left:1.5em;
-      &:hover { background-color: #f5f5f5; }
-    }
+    a { padding-left:1.5em; }
   }
 }
 ul.gMenu li:hover > ul.sub-menu { display: block; }
@@ -147,9 +136,9 @@ ul.gMenu ul.sub-menu li:hover ul { display: block; }
 /*-------------------------------------------*/
 /* .page-header 
 /*-------------------------------------------*/
-.page-header { margin-top:0;margin-bottom:0;padding-bottom:0; background-color: $color_key; }
+.page-header { margin-top:0;margin-bottom:0;padding-bottom:0; }
 .page-header_pageTitle,
-h1.page-header_pageTitle:first-child { margin:15px 0 10px;font-size:22px;line-height: 1.1;color: #fff; }
+h1.page-header_pageTitle:first-child { margin:15px 0 10px;font-size:22px;line-height: 1.1; }
 @media (min-width: 768px){
   .page-header_pageTitle,
   h1.page-header_pageTitle:first-child { margin:30px 0 25px;font-size:32px; }
@@ -371,7 +360,6 @@ ul.page-numbers { margin:0;padding: 0;
 /* footer
 /*-------------------------------------------*/
 footer {
-  border-top:3px solid #337ab7;
   background-color: #f5f5f5;
   .footerMenu { border-top:$border_primary;border-bottom:$border_primary; }
   .copySection { border-top:$border_primary;
