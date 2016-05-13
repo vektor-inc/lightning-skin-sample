@@ -37,7 +37,7 @@ add_filter( 'lightning_design_skins', 'lightning_register_skin' );
 function lightning_register_skin( $array ){
 
  $array['sample'] = array(
-	 'name'     => 'テストスキン',
+	 'name'     => 'Sample Skin',
 	 'callback' => 'lightning_skin_current_function_sample',
 	 'disable_css' => true,
  );

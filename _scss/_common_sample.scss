@@ -1,25 +1,2 @@
 ﻿@charset "utf-8";
 @import "compass";
-
-@mixin graygrad {
-	background: #f6f6f6; /* Old browsers */
-	background: -moz-linear-gradient(top,  #f6f6f6 0%, #ffffff 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(top,  #f6f6f6 0%,#ffffff 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to bottom,  #f6f6f6 0%,#ffffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f6f6', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
-}
-
-body { }
-
-// h2,
-// .mainSection-title { @include graygrad;font-size: 22px;position: relative; padding: 18px 10px 14px; border-top: 2px solid #efefef; }
-
-// h2:after,
-// .mainSection-title:after { position: absolute; top: 1px; left: 0; z-index: 2; content: ''; width: 100%; border-top:1px dotted $color_key; }
-
-
-h3 { background-color: #efefef; padding: 10px 15px; }
-
-h4 { border-left: 4px solid $color_key; padding-left: 10px; }
-
-h5 { padding:7px 0px 10px;border-bottom:1px solid #ccc; }
