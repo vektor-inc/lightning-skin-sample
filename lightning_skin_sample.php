@@ -27,22 +27,24 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
 $data = get_file_data( __FILE__, array( 'version' => 'Version' ) );
-define( 'PLUGINNAME_VERSION', $data['version'] );
+// // !! Please rewrite the part of the [SKIN_NAME] to your design skin name.
+define( 'SKIN_NAME_VERSION', $data['version'] );
 
 load_plugin_textdomain( 'lightning_skin_sample', false, dirname( plugin_basename( __FILE__ ) ). '/languages' );
 
 add_filter( 'lightning_design_skins', 'lightning_register_skin' );
 function lightning_register_skin( $array ){
  $array['sample'] = array(
-	 'name'     => 'Sample Skin', // プルダウンに表示されるスキンの名称
-	 'callback' => 'lightning_skin_current_function_sample', // このスキンが有効になった時に実行する処理
-	 'disable_css' => true, // デフォルトのデザインスキンのCSSを出力しないようにする
+	 'name'     => 'Sample Skin',                            // Skin Name
+	 'callback' => 'lightning_skin_current_function_sample', // Require skins function name
+	 'disable_css' => true,                                  // kill default design(origin) style
  );
  return $array;
 }
 /*-------------------------------------------*/
 /*	Require skins function
 /*-------------------------------------------*/
+// !! Please rewrite the part of the [sample] to your design skin name.
 function lightning_skin_current_function_sample(){
 	require_once( plugin_dir_path( __FILE__ ) . '/active.php' );
 }
