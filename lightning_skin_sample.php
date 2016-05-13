@@ -29,17 +29,14 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 $data = get_file_data( __FILE__, array( 'version' => 'Version' ) );
 define( 'PLUGINNAME_VERSION', $data['version'] );
 
-
 load_plugin_textdomain( 'lightning_skin_sample', false, dirname( plugin_basename( __FILE__ ) ). '/languages' );
-
 
 add_filter( 'lightning_design_skins', 'lightning_register_skin' );
 function lightning_register_skin( $array ){
-
  $array['sample'] = array(
-	 'name'     => 'Sample Skin',
-	 'callback' => 'lightning_skin_current_function_sample',
-	 'disable_css' => true,
+	 'name'     => 'Sample Skin', // プルダウンに表示されるスキンの名称
+	 'callback' => 'lightning_skin_current_function_sample', // このスキンが有効になった時に実行する処理
+	 'disable_css' => true, // デフォルトのデザインスキンのCSSを出力しないようにする
  );
  return $array;
 }
