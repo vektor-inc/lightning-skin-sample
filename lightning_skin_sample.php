@@ -38,9 +38,11 @@ function lightning_register_skin( $array ){
 	 'name'     => 'Sample Skin',                            // Skin Name
 	 'callback' => 'lightning_skin_current_function_sample', // Require skins function name
 	 'disable_css' => true,                                  // kill default design(origin) style
+	 // 'customizer' => 'customizer_function_sample'
  );
  return $array;
 }
+
 /*-------------------------------------------*/
 /*	Require skins function
 /*-------------------------------------------*/
