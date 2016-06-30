@@ -1,9 +1,12 @@
 ﻿@charset "utf-8";
 @import "compass";
+// Bootstrap
 @import "bootstrap.min";
+// 本文エリアなどエディターでも使用する && 全スキンほぼ共通
 @import "common";
+// 本文エリアなどエディターでも使用する && スキン固有
 @import "common_sample";
-// @import "common_lightning";
+// ヘッダーやフッターなど && 全スキンほぼ共通
 @import "outer";
+// ヘッダーやフッターなど && スキン固有
 @import "outer_sample";
-// @import "outer_lightning";
