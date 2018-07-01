@@ -30,23 +30,28 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-$data = get_file_data( __FILE__, array( 'version' => 'Version' ) );
-
 /*-------------------------------------------*/
 /*	Require skins function
 /*-------------------------------------------*/
 // sample の箇所を任意の名称に変更してください
 add_filter( 'lightning-design-skins', 'ltg_sample_register_skin' );
 function ltg_sample_register_skin( $array ) {
+	$data = get_file_data( __FILE__, array( 'version' => 'Version' ) );
+	// スキン識別用名称
 	 $array['sample'] = array(
+		 // プルダウンへの表示名
 		 'label'           => 'Sample',
+		 // CSSのURL
 		 'css_path'        => plugin_dir_url( __FILE__ ) . 'css/style.css',
+		 // 編集画面用のCSSのURL（指定しない場合はコメントアウトまたは削除でかまいません）
 		 'editor_css_path' => plugin_dir_url( __FILE__ ) . 'css/editor.css',
+		 // javascript のURL（指定しない場合はコメントアウトまたは削除でかまいません）
 		 'js_path'         => plugin_dir_url( __FILE__ ) . 'js/common.min.js',
-		 // スキン固有のPHPファイルを読み込む場合
+		 // スキン固有のPHPファイルを読み込む場合のPHPファイルのサーバーパス（指定しない場合はコメントアウトまたは削除でかまいません）
 		 // 'php_path'        => plugin_dir_path( __FILE__ ) . 'skin-active.php',
-		 // スキン固有のコールバック関数
+		 // スキン固有のコールバック関数（指定しない場合はコメントアウトまたは削除でかまいません）
 		 'callback'        => 'ltg_sample_current_function',
+		 // デザインスキンのバージョン
 		 'version'         => $data['version'],
 	 );
 	return $array;
