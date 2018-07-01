@@ -1,12 +1,8 @@
-﻿@charset "utf-8";
-@import "compass";
-// Bootstrap
+@charset "utf-8";
+// @import "compass";
 @import "bootstrap.min";
-// 本文エリアなどエディターでも使用する && 全スキンほぼ共通
 @import "common";
-// 本文エリアなどエディターでも使用する && スキン固有
-@import "common_sample";
-// ヘッダーやフッターなど && 全スキンほぼ共通
+@import "common_origin";
 @import "outer";
-// ヘッダーやフッターなど && スキン固有
-@import "outer_sample";
+@import "outer_origin";
+@import "slide";

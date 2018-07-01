@@ -1,0 +1,29 @@
+{
+  "name": "lightning-skin-sample",
+  "version": "1.0.0",
+  "description": "Lightningのデザインスキン開発用です。",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://kurudrive@github.com/vektor-inc/lightning-skin-sample.git"
+  },
+  "author": "Vektor,Inc.",
+  "license": "GPL V2",
+  "bugs": {
+    "url": "https://github.com/vektor-inc/lightning-skin-sample/issues"
+  },
+  "path": {
+    "assetsDir": "./"
+  },
+  "homepage": "https://github.com/vektor-inc/lightning-skin-sample#readme",
+  "devDependencies": {
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-clean-css": "^3.9.4",
+    "gulp-jsmin": "^0.1.5",
+    "gulp-plumber": "^1.2.0",
+    "gulp-sass": "^4.0.1"
+  }
+}
