@@ -40,19 +40,21 @@ function ltg_sample_register_skin( $array ) {
 	// スキン識別用名称
 	 $array['sample'] = array(
 		 // プルダウンへの表示名
-		 'label'           => 'Sample',
+		 'label'              => 'Sample',
 		 // CSSのURL
-		 'css_path'        => plugin_dir_url( __FILE__ ) . 'css/style.css',
+		 'css_path'           => plugin_dir_url( __FILE__ ) . 'css/style.css',
 		 // 編集画面用のCSSのURL（指定しない場合はコメントアウトまたは削除でかまいません）
-		 'editor_css_path' => plugin_dir_url( __FILE__ ) . 'css/editor.css',
+		 'editor_css_path'    => plugin_dir_url( __FILE__ ) . 'css/editor.css',
+		 // 編集画面用（Gutenberg）のCSSのURL
+		 'gutenberg_css_path' => plugin_dir_url( __FILE__ ) . 'css/editor-gutenberg.css',
 		 // javascript のURL（指定しない場合はコメントアウトまたは削除でかまいません）
-		 'js_path'         => plugin_dir_url( __FILE__ ) . 'js/common.min.js',
+		 'js_path'            => plugin_dir_url( __FILE__ ) . 'js/common.min.js',
 		 // スキン固有のPHPファイルを読み込む場合のPHPファイルのサーバーパス（指定しない場合はコメントアウトまたは削除でかまいません）
 		 // 'php_path'        => plugin_dir_path( __FILE__ ) . 'skin-active.php',
 		 // スキン固有のコールバック関数（指定しない場合はコメントアウトまたは削除でかまいません）
-		 'callback'        => 'ltg_sample_current_function',
+		 'callback'           => 'ltg_sample_current_function',
 		 // デザインスキンのバージョン
-		 'version'         => $data['version'],
+		 'version'            => $data['version'],
 	 );
 	return $array;
 }

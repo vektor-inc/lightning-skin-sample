@@ -59,7 +59,6 @@ html, body { overflow-x: hidden; }
     display: block;
 }
 .nav li a { color:$color_font_default; }
-// .btn { border-radius: 0; }
 .btn-default { background: none;color:$color_key;border-color: $color_key; }
 .btn-default:focus,
 .btn-default:hover { background-color: $color_key;color:#fff;border-color: $color_key; }
@@ -87,6 +86,7 @@ input.form-control.input_widthAuto { width: auto; }
 /* .siteHeader
 /*-------------------------------------------*/
 .siteHeader { width:100%;z-index:1000;top:0;background-color: #fff;box-shadow:0px 1px 3px rgba(0,0,0,0.1);margin-bottom:0;min-height:46px;
+	border:none;
   &.navbar { border-radius: 0; }
   .container { padding-top:5px;padding-bottom:4px; }
 }
@@ -450,12 +450,12 @@ ul.page-numbers { margin:0;padding: 0;
 .widget_vkexunit_post_list .mainSection-title,
 .widget_ltg_adv_post_list .pt_0 .mainSection-title { margin-bottom:0; }
 
-.widget_ltg_adv_full_wide_title_outer {
+.widget_ltg_adv_full_wide_title_outer, .widget_ltg_full_wide_title_outer {
   text-align: center;
   background-size: cover;
   background-position:center center;
 }
-.widget_ltg_adv_full_wide_title_title {
+.widget_ltg_adv_full_wide_title_title, .widget_ltg_full_wide_title_title {
   font-size:2.4rem;
   @media ( min-width: 768px ){ font-size:2.8rem; }
   @media ( min-width: 1200px ){ font-size:3.2rem; }
@@ -465,10 +465,10 @@ ul.page-numbers { margin:0;padding: 0;
   background:none;
   border:none;
 }
-.widget_ltg_adv_full_wide_title_title:last-child {
+.widget_ltg_adv_full_wide_title_title:last-child, .widget_ltg_full_wide_title_title:last-child {
   margin-bottom: 0;
 }
-.widget_ltg_adv_full_wide_title_caption {
+.widget_ltg_adv_full_wide_title_caption, .widget_ltg_full_wide_title_caption {
   margin-bottom: 0;
   line-height: 1.4em;
 }
@@ -547,13 +547,13 @@ p.no-comments { background-color: #f3f3f3;border:1px solid #e5e5e5; text-align: 
 /*-------------------------------------------*/
 /* search
 /*-------------------------------------------*/
-form.searchform { margin:1em 0;
-  div { display: flex;
-    input[type=text]#s { width:64%;margin-right:5%; }
-    input[type=submit]#searchsubmit { float:right;width:34%; text-align: center;padding-left:2px;padding-right:2px; }
-  }
-}
-input#searchsubmit { vertical-align: top; }
+// form.searchform { margin:1em 0;
+//   div { display: flex;
+//     input[type=text]#s { width:64%;margin-right:2%; }
+//     input[type=submit]#searchsubmit { float:right;width:34%; text-align: center;padding-left:2px;padding-right:2px; }
+//   }
+// }
+// input#searchsubmit { vertical-align: top; }
 
 /*-------------------------------------------*/
 /* Widget .veu_prBlocks
