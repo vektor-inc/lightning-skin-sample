@@ -1,0 +1,12 @@
+@charset "utf-8";
+
+// load variable
+@import "variables";
+@import "../foundation/_scss/variables";
+
+// load foundation
+@import "../foundation/_scss/foundation_editor";
+
+// load skin specific
+@import "common";
+@import "vk_post_adjuster";

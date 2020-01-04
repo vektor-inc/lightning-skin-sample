@@ -1,93 +1,41 @@
-var path = require('path');
-var fs = require('fs');
-var pkg = JSON.parse(fs.readFileSync('./package.json'));
-var assetsPath = path.resolve(pkg.path.assetsDir);
+const { src, dest, watch, series, parallel } = require('gulp');
 
-var gulp = require('gulp');
+const gulp = require('gulp');
 
-// sass compiler
-var sass = require('gulp-sass');
-
-// js最小化
-var jsmin = require('gulp-jsmin');
-// ファイルリネーム（.min作成用）
-var rename = require('gulp-rename');
+const autoprefixer = require('gulp-autoprefixer');
 // エラーでも監視を続行させる
-var plumber = require('gulp-plumber');
+const plumber = require('gulp-plumber');
+// ファイルリネーム（.min作成用）
+const rename = require('gulp-rename');
+// sass compiler
+const sass = require('gulp-sass');
+// clean css
+const cleanCss = require('gulp-clean-css');
+// js最小化
+const jsmin = require('gulp-jsmin');
 
-var cleanCss = require('gulp-clean-css');
 // var cmq = require('gulp-merge-media-queries');
 
-// add vender prifix
-var autoprefixer = require('gulp-autoprefixer');
-
-// error handling
-var plumber = require('gulp-plumber');
-
-gulp.task('sass', function() {
-	// gulp.src(path.join(assetsPath, '_scss/style.scss'))
-	gulp.src(['_scss/*.scss'])
+const sassCompile = () =>
+	src('./assets/_scss/*.scss')
 		.pipe(plumber())
 		.pipe(sass())
 		// .pipe(cmq({log:true}))
 		.pipe(autoprefixer())
 		.pipe(cleanCss())
-		.pipe(gulp.dest(path.join(assetsPath, 'css/')));
-});
+		.pipe(gulp.dest('./assets/css/'));
 
 // js最小化
-gulp.task('jsmin', function() {
-	gulp.src(['./js/common.js'])
+const jsCompile = () => 
+	src('./assets/js/common.js')
 		.pipe(plumber()) // エラーでも監視を続行
 		.pipe(jsmin())
 		.pipe(rename({
 			suffix: '.min'
 		}))
-		.pipe(gulp.dest('./js'));
-});
+		.pipe(gulp.dest('./assets/js'));
 
-// Watch
-gulp.task('watch', function() {
-	gulp.watch('./js/common.js', ['jsmin', 'dist']);
-	gulp.watch(path.join(assetsPath, '_scss/**/*.scss'), ['sass', 'dist']);
-});
+const watchSassFiles = () => watch("./assets/_scss/**.scss", sassCompile);
+const watchJsFiles = () => watch("./assets/js/common.js", jsCompile);
 
-gulp.task('default', ['watch']);
-
-// copy dist ////////////////////////////////////////////////
-
-gulp.task('dist', function() {
-	return gulp.src(
-			[
-				'./**/*.php',
-				'./**/*.txt',
-				'./**/*.css',
-				'./**/*.scss',
-				'./**/*.bat',
-				'./**/*.rb',
-				'./**/*.eot',
-				'./**/*.svg',
-				'./**/*.ttf',
-				'./**/*.woff',
-				'./images/**',
-				'./inc/**',
-				'./js/**',
-				'./languages/**',
-				'./library/**',
-				"!./tests/**",
-				"!./dist/**",
-				"!./**/compile.bat",
-				"!./node_modules/**/*.*"
-			], {
-				base: './'
-			}
-		)
-		.pipe(gulp.dest('dist/lightning-skin-sample')); // distディレクトリに出力
-});
-// gulp.task('build:dist',function(){
-//     /* ここで、CSS とか JS をコンパイルする */
-// });
-
-// gulp.task('dist', function(cb){
-//     return runSequence( 'copy_dist', cb );
-// });
+exports.default = parallel(watchSassFiles, watchJsFiles);
