@@ -7,7 +7,7 @@
  * Author URI:      https://vektor-inc.co.jp
  * Text Domain:     lightning-skin-sample
  * Domain Path:     /languages
- * Version:         3.0.0
+ * Version:         3.0.1
  * License:         GPLv2
  *
  * @package         Lightning_Skin_Sample
@@ -44,6 +44,8 @@ function ltg_sample_register_skin( $array ) {
 		 'label'           => 'Sample',
 		 // CSSのURL
 		 'css_path'        => plugin_dir_url( __FILE__ ) . 'assets/css/style.css',
+		 // 後読み込みCSSのURL
+		 'css_late_path'   => plugin_dir_url( __FILE__ ) . 'assets/css/style_late.css',
 		 // 編集画面用のCSSのURL（指定しない場合はコメントアウトまたは削除でかまいません）
 		 'editor_css_path' => plugin_dir_url( __FILE__ ) . 'assets/css/editor.css',
 		 // 編集画面用（Gutenberg）のCSSのURL

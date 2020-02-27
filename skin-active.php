@@ -1,6 +1,6 @@
 <?php
 /*-------------------------------------------*/
-/*	ヘッダー固定解除
+/*	古いヘッダー固定機能をオフにする
 /*-------------------------------------------*/
 add_filter( 'lightning_headfix_enable', 'ltg_sample_headfix_disabel' );
 function ltg_sample_headfix_disabel() {
@@ -8,7 +8,7 @@ function ltg_sample_headfix_disabel() {
 }
 
 /*-------------------------------------------*/
-/*	ヘッダーの高さ可変解除
+/*	古いヘッダーの高さ可変機能をオフにする
 /*-------------------------------------------*/
 add_filter( 'lightning_header_height_changer_enable', 'ltg_sample_header_height_changer_disabel' );
 function ltg_sample_header_height_changer_disabel() {
