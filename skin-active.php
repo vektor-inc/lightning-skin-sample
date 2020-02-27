@@ -60,3 +60,33 @@ dt { border-left-color:' . $color_key . '; }
 		wp_add_inline_style( 'lightning-design-style', $dynamic_css );
 	} // if ( isset($options['color_key'] && isset($options['color_key_dark'] ) {
 }
+
+/*-------------------------------------------*/
+/*	Your design skin Specific functions
+/*-------------------------------------------*/
+
+function my_skin_lightning_header_scrolled_scripts() {
+	if ( function_exists( 'wp_add_inline_script' ) ) {
+		$script = "
+		;(function($,document,window){
+		$(document).ready(function($){
+			/* Add scroll recognition class */
+			$(window).scroll(function () {
+				var scroll = $(this).scrollTop();
+				if ($(this).scrollTop() > 160) {
+					$('body').addClass('header_scrolled');
+				} else {
+					$('body').removeClass('header_scrolled');
+				}
+			});
+		});
+		})(jQuery,document,window);
+		";
+		// delete br
+		$script = str_replace( PHP_EOL, '', $script );
+		// delete tab
+		$script = preg_replace( '/[\n\r\t]/', '', $script );
+		wp_add_inline_script( 'jquery-core', $script, 'after' );
+	}
+}
+add_action( 'wp_enqueue_scripts', 'my_skin_lightning_header_scrolled_scripts' );
