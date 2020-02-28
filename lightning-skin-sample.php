@@ -43,7 +43,7 @@ function ltg_sample_register_skin( $array ) {
 	$array['sample'] = array(
 
 		// プルダウンへの表示名
-		'label'           => 'Sample',
+		'label'           => 'テストスキン',
 
 		// CSSのURL
 		'css_path'        => plugin_dir_url( __FILE__ ) . 'assets/css/style.css',
@@ -61,7 +61,7 @@ function ltg_sample_register_skin( $array ) {
 		// 'js_path'        => plugin_dir_url( __FILE__ ) . 'assets/js/common.min.js',
 
 		// スキン固有のPHPファイルを読み込む場合のPHPファイルのサーバーパス（指定しない場合はコメントアウトまたは削除でかまいません）
-		// 'php_path'        => plugin_dir_path( __FILE__ ) . 'skin-active.php',
+		'php_path'        => plugin_dir_path( __FILE__ ) . 'skin-active.php',
 
 		// スキン固有のコールバック関数（指定しない場合はコメントアウトまたは削除でかまいません）
 		'callback'        => 'ltg_sample_current_function',
