@@ -25,6 +25,6 @@
     "gulp-clean-css": "^3.9.4",
     "gulp-jsmin": "^0.1.5",
     "gulp-plumber": "^1.2.0",
-    "gulp-sass": "^4.0.1"
+    "gulp-sass": "^5.1.0"
   }
 }
