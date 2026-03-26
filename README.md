@@ -45,3 +45,7 @@ gulp
 Lightning 共通で使うと思われるSCSSファイル一式（レイアウトやメニュー処理など）が入っている。
 
 もしテーマをアップデートして何か表示不具合が発生したら Lightning の /design-skin/foundation/ に同様のものがあるので、コピーしてきれ上書きすれば改善するかもしれません。
+
+## Changelog
+
+* [ 不具合修正 ] グローバルナビゲーション関連のSCSS変数（`$g_nav_bg_color` / `$g_nav_bg_hover_color` / `$g_nav_separator`）で `inhelit` とタイプミスされていたため CSS として無効な値が出力されてしまう不具合を修正
