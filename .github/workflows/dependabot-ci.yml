@@ -1,0 +1,32 @@
+# Dependabot の PR に対して、npm パッケージのインストールが通るかを確認する軽量な CI。
+# dependabot-auto-merge-complete.yml がこのワークフローの成功を見てマージする。
+#
+# このリポジトリにはテストもビルドスクリプトも無く（gulpfile は watch 用のタスクだけ）、
+# composer.json も無いため、確認できるのは package-lock.json どおりにインストールできることまで。
+# 人が作った PR ではこのワークフローは動かない。
+name: Dependabot CI
+
+on:
+  pull_request:
+    branches:
+      - master
+    # labeled を含めない。Dependabot は PR 作成直後に dependencies などのラベルを
+    # 次々に付けるため、含めるとそのたびに起動して同じ内容を何度もインストールする。
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    if: github.event.pull_request.user.login == 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+
+      - name: Install npm packages
+        run: npm ci
